@@ -1,11 +1,12 @@
 import { useState } from "react";
 import "./App.css";
 import { searchRecipes } from "./API";
+import { Recipe } from "./types";
 
 // src/App.tsx
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
 
   const handleSearchSubmit = async (event: FormEvent) => {
     event.preventDefault();
@@ -23,7 +24,7 @@ const App = () => {
       <form onSubmit={handleSearchSubmit}>
         <button type="submit">Submit</button>
       </form>
-      {recipes.map((recipe) => (
+      {recipes.map((recipe: Recipe) => (
         <div key={recipe.id}>
           Recipe Image Location: {recipe.image}
           <br />
