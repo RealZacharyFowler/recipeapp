@@ -22,6 +22,13 @@ const App = () => {
   return (
     <div>
       <form onSubmit={handleSearchSubmit}>
+      <input
+          type="text"
+          required
+          placeholder="Enter a search term"
+          value={searchTerm}
+          onChange={(event) => setSearchTerm(event.target.value)}
+        />
         <button type="submit">Submit</button>
       </form>
       {recipes.map((recipe: Recipe) => (
