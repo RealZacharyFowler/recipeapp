@@ -10,10 +10,15 @@ const App = () => {
 
   const handleSearchSubmit = async (event: FormEvent) => {
     event.preventDefault();
-
     try {
-      const { results } = await searchRecipes(searchTerm, 1);
-      setRecipes(results);
+      const response = await fetch(
+        `http://localhost:5000/api/recipes/search?searchTerm=${searchTerm}`
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      setRecipes(data.results);
     } catch (error) {
       console.error(error);
     }
