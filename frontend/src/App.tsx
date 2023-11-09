@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import { searchRecipes } from "./API";
 import { Recipe } from "./types";
+import RecipeCard from "./components/RecipeCard";
 
 // src/App.tsx
 const App = () => {
@@ -41,6 +42,7 @@ const App = () => {
           Recipe Image Location: {recipe.image}
           <br />
           Recipe Title: {recipe.title}
+          <RecipeCard key={recipe.id} recipe={recipe} />
         </div>
       ))}
     </div>
