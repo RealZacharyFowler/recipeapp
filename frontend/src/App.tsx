@@ -37,14 +37,9 @@ const App = () => {
         />
         <button type="submit">Submit</button>
       </form>
-      {recipes.map((recipe: Recipe) => (
-        <div key={recipe.id}>
-          Recipe Image Location: {recipe.image}
-          <br />
-          Recipe Title: {recipe.title}
-          <RecipeCard key={recipe.id} recipe={recipe} />
-        </div>
-      ))}
+      {recipes.map((recipe) => (
+      <RecipeCard key={recipe.id} recipe={recipe} />
+    ))}
     </div>
   );
 };
