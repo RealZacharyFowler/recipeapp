@@ -40,6 +40,9 @@ const App = () => {
       {recipes.map((recipe) => (
       <RecipeCard key={recipe.id} recipe={recipe} />
     ))}
+    <button className="view-more" onClick={handleViewMoreClick}>
+  View More
+</button>;
     </div>
   );
 };
