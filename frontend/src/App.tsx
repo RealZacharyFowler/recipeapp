@@ -8,6 +8,7 @@ import RecipeCard from "./components/RecipeCard";
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const pageNumber = useRef(1);
 
   const handleSearchSubmit = async (event: FormEvent) => {
     event.preventDefault();
