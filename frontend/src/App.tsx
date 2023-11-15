@@ -6,7 +6,7 @@ import RecipeCard from "./components/RecipeCard";
 
 // src/App.tsx
 const App = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const [recipes, setRecipes] = useState<Recipe[]>([]);
   const pageNumber = useRef(1);
 
