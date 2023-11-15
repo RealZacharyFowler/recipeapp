@@ -1,7 +1,7 @@
 import { FormEvent, useState } from "react";
 import "./App.css";
 import { Recipe } from "./types";
-import * as api from "./api";
+import * as api from './API';
 import RecipeCard from "./components/RecipeCard";
 
 // src/App.tsx
@@ -18,6 +18,17 @@ const App = () => {
       pageNumber.current = 1;
     } catch (e) {
       console.log(e);
+    }
+  };
+  
+  const handleViewMoreClick = async () => {
+    try {
+      const nextPage = pageNumber.current + 1;
+      const nextRecipes = await api.searchRecipes(searchTerm, nextPage);
+      setRecipes((prevRecipes) => [...prevRecipes, ...nextRecipes.results]);
+      pageNumber.current = nextPage;
+    } catch (error) {
+      console.error(error);
     }
   };
 
